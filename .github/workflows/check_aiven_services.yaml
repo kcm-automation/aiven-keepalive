@@ -36,6 +36,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Install Playwright firefox browser
+        run: playwright install firefox
+
       - name: Run script
         id: run_py_script
         env:
