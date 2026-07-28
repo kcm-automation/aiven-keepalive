@@ -16,8 +16,25 @@ logging.basicConfig(
     level=LOG_LEVEL
 )
 
+data = {
+    "services": [
+        {"service_name": "AAA", "email_address": "BBB", "password": "CCC"}
+    ]
+}
+
 def main():
-    print("hello")
+    from src.playwright import aaa
+
+    for service in data["services"]:
+        service_name     = service["service_name"]
+        service_email    = service["email_address"]
+        service_password = service["password"]
+
+        logging.info(f"Checking service status for {service_name}...")
+        aaa(service_email, service_password)
+        logging.info(f"Check for {service_name} complete.")
+
+    logging.info("No more services to check...")
 
 if __name__ == "__main__":
     main()
