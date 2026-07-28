@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+import json
 import logging
 import os
 
@@ -16,15 +17,19 @@ logging.basicConfig(
     level=LOG_LEVEL
 )
 
-data = {
-    "services": [
-        {"service_name": "AAA", "email_address": "BBB", "password": "CCC"}
-    ]
-}
-
 def main():
     from src.playwright import check_aiven_service
 
+    try:
+        json_data = os.environ["AIVEN_SERVICES"]
+        logging.debug("envvar AIVEN_SERVICES was found")
+
+    except KeyError:
+        err_msg = "Envvar AIVEN_SERVICES was not found"
+        logging.critical(err_msg)
+        raise RuntimeError(err_msg)
+
+    data = json.loads(json_data)
     for service in data["services"]:
         service_name     = service["service_name"]
         service_email    = service["email_address"]
