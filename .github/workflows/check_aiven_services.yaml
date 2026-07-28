@@ -42,4 +42,4 @@ jobs:
           NOT_DOTENV: ${{ vars.NOT_DOTENV }}
           LOG_LEVEL: ${{ vars.LOG_LEVEL }}
         run: |
-          python main.py --access
+          python main.py
