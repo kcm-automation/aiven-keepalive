@@ -11,7 +11,7 @@ def check_aiven_service(aiven_username: str, aiven_password: str) -> None:
     to_close                = random.randrange(1000, 3000)
 
     with sync_playwright() as p:
-        browser = p.firefox.launch(headless=False)
+        browser = p.firefox.launch(headless=True)
         page = browser.new_page()
 
         logging.info("Going to example.com...")
