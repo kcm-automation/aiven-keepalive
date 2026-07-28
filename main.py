@@ -23,7 +23,7 @@ data = {
 }
 
 def main():
-    from src.playwright import aaa
+    from src.playwright import check_aiven_service
 
     for service in data["services"]:
         service_name     = service["service_name"]
@@ -31,7 +31,7 @@ def main():
         service_password = service["password"]
 
         logging.info(f"Checking service status for {service_name}...")
-        aaa(service_email, service_password)
+        check_aiven_service(service_email, service_password)
         logging.info(f"Check for {service_name} complete.")
 
     logging.info("No more services to check...")

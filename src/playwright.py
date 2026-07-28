@@ -2,7 +2,7 @@ import logging
 from playwright.sync_api import sync_playwright
 import random
 
-def aaa(aiven_username: str, aiven_password: str) -> None:
+def check_aiven_service(aiven_username: str, aiven_password: str) -> None:
     # set up jitters
     after_clicking_accept   = random.randrange(500,1000)
     after_entering_email    = random.randrange(500,1000)
