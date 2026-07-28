@@ -60,6 +60,7 @@ def check_aiven_service(aiven_username: str, aiven_password: str) -> None:
             return None
 
         logging.info("🟢 Service is running")
+        logging.debug("Closing browser...")
         page.wait_for_timeout(to_close)
         browser.close()
 
