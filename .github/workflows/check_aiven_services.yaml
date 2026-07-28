@@ -41,5 +41,7 @@ jobs:
         env:
           NOT_DOTENV: ${{ vars.NOT_DOTENV }}
           LOG_LEVEL: ${{ vars.LOG_LEVEL }}
+
+          AIVEN_SERVICES: ${{ secrets.AIVEN_SERVICES }}
         run: |
           python main.py
