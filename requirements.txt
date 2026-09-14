@@ -1,2 +1,2 @@
-python-dotenv == 1.2.2
+python-dotenv == 1.2.3
 playwright    == 1.61.0
